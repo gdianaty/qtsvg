@@ -259,6 +259,22 @@ void QSvgRenderer::setAnimationEnabled(bool enable)
     d->startOrStopTimer();
 }
 
+qint64 QSvgRenderer::animationTime() const
+{
+    Q_D(const QSvgRenderer);
+    if (d->render)
+        return d->render->animator()->currentElapsed();
+    else
+        return 0;
+}
+
+void QSvgRenderer::setAnimationTime(qint64 sec)
+{
+    Q_D(QSvgRenderer);
+    if (d->render)
+		d->render->animator()->setAnimatorTime(sec);
+}
+
 /*!
     \property QSvgRenderer::framesPerSecond
     \brief the number of frames per second to be shown

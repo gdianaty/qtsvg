@@ -60,6 +60,8 @@ public:
     int animationDuration() const;//in seconds
     bool isAnimationEnabled() const;
     void setAnimationEnabled(bool enable);
+	qint64 animationTime() const;//in seconds
+	void setAnimationTime(qint64 sec);
 
     QRectF boundsOnElement(const QString &id) const;
     bool elementExists(const QString &id) const;
